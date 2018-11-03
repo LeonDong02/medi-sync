@@ -50,3 +50,14 @@ function setUser(data, callback) {
     callback(error, snapshot);
   });
 }
+
+
+function getInfo(userID) {
+  let url = `https://api.fitbit.com/1/user/${userID}/activities/heart/date/today/1d.json`;
+  request(url, function (err, response, body) {
+    let information = JSON.parse(body);
+    if (information.activities-heart) {
+      res.render('index', {code: information.activities-heart[0].restingHeartRate});
+    }
+  });
+}
