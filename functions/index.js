@@ -14,8 +14,13 @@ app.set('views', './views');
 app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
+  res.render('index', {code:"Homepage"});
+});
+app.get('/auth', (req, res) => {
   let code = req.query.code;
-  res.render('index', {code});
+  if (code) {
+    res.render('index', {code});
+  }
 });
 
 
