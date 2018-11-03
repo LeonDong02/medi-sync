@@ -7,10 +7,7 @@
   <body>
   <script>
   window.onload = function() {
-    fetch('/landing', {
-      method: 'POST',
-      body: JSON.stringify({content: window.location.hash})
-    }).then(res => res.json()).then(data => console.log(data));
+    window.location.replace('https://echacks-892cd.firebaseapp.com/landing?content=' + escape(window.location.hash));
   }
   </script>
   </body>
