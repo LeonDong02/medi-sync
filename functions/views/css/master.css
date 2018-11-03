@@ -70,10 +70,9 @@ h1 {
   align-items: center;
 }
 #graph1 {
-  height: 15em;
-  width: 30em;
-  background-color: #96a6cc;
-  margin: 4em;
+  position:relative;
+  height:20em;
+  width:40em;
   margin-right: 0;
 }
 #stats1 {
