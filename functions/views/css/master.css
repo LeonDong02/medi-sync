@@ -28,6 +28,9 @@ h1{
 }
 .right {
   float: right;
+  position:fixed;
+  right:0;
+  top: 0;
   background-color: #08122A;
   width: 27%;
   min-height: 48em;
@@ -43,19 +46,31 @@ h1{
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  justify-content:center;
+
 }
 .tile1 {
   width: 20em;
   height: 7em;
-  margin: 0.2em;
+  margin: 0.5em;
   margin-bottom: 1em;
   background-color: #96A6CC;
 }
 .tile2 {
   width: 10em;
   height: 5em;
-  margin: 0.2em;
+  margin: 0.5em;
   background-color: #E32D2D;
+}
+#toleft{
+  margin: 0;
+  width: 95%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
 }
 #graph1 {
   height: 15em;
