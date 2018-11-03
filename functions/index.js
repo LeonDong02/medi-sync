@@ -2,12 +2,14 @@ const functions = require('firebase-functions');
 const firebase = require('firebase-admin');
 const express = require('express');
 const engines = require('consolidate');
-const request = require('request');
-const http = require('http');
-const querystring = require('querystring');
+const passport = require('passport');
+const FitbitStrategy = require('passport-fitbit-oauth2').FitbitOAuth2Strategy;
 
 const firebaseApp = firebase.initializeApp(functions.config().firebase);
+const database = firebase.database();
 
+const ref = database.ref("data");
+const usersRef = ref.child("users");
 const app = express();
 
 app.use(express.static('views'));
@@ -15,33 +17,32 @@ app.engine('hbs', engines.handlebars);
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
+passport.use(new FitbitStrategy({
+  clientID: '22D59S',
+  clientSecret: '593fa72b8cacede4644a48c0ff53f8dd',
+  callbackURL: 'https://echacks-892cd.firebaseapp.com/auth/callback/'
+}, (accessToken, refreshToken, profile, done) => {
+  setUser({id: profile.id}, done);
+}));
 app.get('/', (req, res) => {
   res.render('index', {code:"Homepage"});
 });
-app.get('/auth', (req, res) => {
-  let code = req.query.code;
-  if (code) {
-    res.render('index', {code});
-    request.post({
-      headers: {
-        'Authorization': 'Basic MjJENTlTOjU5M2ZhNzJiOGNhY2VkZTQ2NDRhNDhjMGZmNTNmOGRk',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      url: 'https://api.fitbit.com/oauth2/token',
-      form: {
-        'clientId': '22D59S',
-        'grant-type': 'authorization-code',
-        'redirect-uri': 'https%3A%2F%2Fechacks-892cd.firebaseapp.com%2Ftoken%2F',
-        'code': code
-      }
-    }, (error, response, body) => {
-      console.log(response, body);
-    });
-  }
-});
-app.get('/token', (req, res) => {
-  let token = req.query.token;
-  res.render('index', {code: token});
+app.get('/auth', passport.authenticate('fitbit', {scope: ['heartrate', 'activity']}));
+app.get('/auth/callback', passport.authenticate('fitbit', {
+  failureRedirect: 'auth/failure'
+}), (req, res) => {
+  res.redirect("/");
 });
 
 exports.app = functions.https.onRequest(app);
+
+function setUser(data, callback) {
+  usersRef.child(data.id).transaction((currentData) => {
+    if (currentData === null) {
+      return data;
+    }
+    return usersRef.child(data.id);
+  }, (error, committed, snapshot) => {
+    callback(error, snapshot);
+  });
+}

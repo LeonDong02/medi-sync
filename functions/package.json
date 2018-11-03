@@ -14,7 +14,8 @@
     "firebase-admin": "~6.0.0",
     "firebase-functions": "^2.1.0",
     "handlebars": "^4.0.12",
-    "querystring": "^0.2.0",
+    "passport": "^0.4.0",
+    "passport-fitbit-oauth2": "^1.0.2",
     "request": "^2.88.0"
   },
   "private": true
