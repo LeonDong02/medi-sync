@@ -1,14 +1,16 @@
 ::-webkit-scrollbar {
   display: none;
 }
-
+html,body{
+  height:100%;
+}
 body {
   font-family: "Varela Round", sans-serif;
   margin: 0 0 1em 1em;
   padding: 0;
 }
 header {
-  margin: 2em 0 0 0;
+  margin: 1% 0 0 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -48,7 +50,7 @@ button:hover{
   position: fixed;
   right: 0;
   top: 0;
-  background-color: #08122a;
+  background-color: rgb(8,18,42);
   width: 27%;
   min-height: 48em;
   margin: 0;
@@ -66,23 +68,29 @@ button:hover{
   justify-content: center;
 }
 .tile1 {
-  width: 30%;
-  height: 7em;
-  margin: 1%;
-  margin-bottom: 1%;
-  background-color: #96a6cc;
-}
-.tile2 {
   width: 22%;
   height: 5em;
-  margin: 1%;
-  background-color: #e32d2d;
+  margin: 0.5%;
+  margin-bottom: 1%;
+  padding:0.7%;
+  border-radius:10px;
+  background-color:rgb(227,45,45);
+
+}
+.tile2 {
+  width: 30%;
+  height: 7em;
+  margin: 0.5%;
+  background-color: rgb(124, 137, 211);
+  border-radius:10px;
+  padding:0.7%;
 }
 .tile3 {
   width: 100%;
   height: 70%;
   margin:0em;
   margin-bottom: 1em;
+  font-size:200%;
 
 }
 #toleft {
@@ -109,4 +117,8 @@ button:hover{
   width: 10%;
   height: 10%;
   margin-left:3.2%;
+}
+#righthead{
+  font-family:"Varela Round", sans-serif;
+  font-size:200%;
 }
