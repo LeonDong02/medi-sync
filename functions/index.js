@@ -10,6 +10,8 @@ function getData() {
   return ref.once('value').then(snap => snap.val());
 }
 const app = express();
+
+
 app.use(express.static('views'));
 app.engine('hbs', engines.handlebars);
 app.set('views', './views');
@@ -20,4 +22,6 @@ app.get('/', (req, res) => {
     res.render('index', {data});
   });
 });
+
+
 exports.app = functions.https.onRequest(app);
