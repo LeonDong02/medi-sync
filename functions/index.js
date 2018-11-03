@@ -20,3 +20,30 @@ app.get('/auth', (req, res) => {});
 app.get('/auth/callback', (req, res) => {});
 
 exports.app = functions.https.onRequest(app);
+<<<<<<< HEAD
+=======
+
+function setUser(data, callback) {
+  console.log(data, callback);
+  usersRef.child(data.id).transaction((currentData) => {
+    if (currentData === null) {
+      return data;
+    }
+    return usersRef.child(data.id);
+  }, (error, committed, snapshot) => {
+    console.log(error, committed, snapshot);
+    callback(error, snapshot);
+  });
+}
+
+
+function getInfo(userID) {
+  let url = `https://api.fitbit.com/1/user/${userID}/activities/heart/date/today/1d.json`;
+  request(url, function (err, response, body) {
+    let information = JSON.parse(body);
+    if (information.activities-heart) {
+      res.render('index', {code: information.activities-heart[0].restingHeartRate});
+    }
+  });
+}
+>>>>>>> 20501de0e78e41e82ffd3bd4d66fdfff8ae4d6d3
