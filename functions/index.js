@@ -26,7 +26,7 @@ app.get('/auth', (req, res) => {
 app.get('/callback', (req, res) => {
   res.render('callback');
 });
-app.get('/callback/landing', (req, res) => {
+app.get('/landing', (req, res) => {
   res.send(req.body.content);
 });
 
