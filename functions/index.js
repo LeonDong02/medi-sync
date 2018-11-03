@@ -6,10 +6,6 @@ const request = require('request');
 
 const firebaseApp = firebase.initializeApp(functions.config().firebase);
 
-function getData() {
-  const ref = firebaseApp.database().ref('data');
-  return ref.once('value').then(snap => snap.val());
-}
 const app = express();
 
 
@@ -19,9 +15,7 @@ app.set('views', './views');
 app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
-  getData().then(data => {
-    res.render('index', {data});
-  });
+  
 });
 
 
