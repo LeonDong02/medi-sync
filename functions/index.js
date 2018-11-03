@@ -27,7 +27,7 @@ app.get('/callback', (req, res) => {
   res.render('callback');
 });
 app.get('/landing', (req, res) => {
-  res.send(req.body.content);
+  res.send("Content: " + req.body.content);
 });
 
 exports.app = functions.https.onRequest(app);
