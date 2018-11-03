@@ -8,14 +8,14 @@ const firebaseApp = firebase.initializeApp(functions.config().firebase);
 
 const app = express();
 
-
 app.use(express.static('views'));
 app.engine('hbs', engines.handlebars);
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
-  
+  let code = req.query.code;
+  res.render('index', {code});
 });
 
 
