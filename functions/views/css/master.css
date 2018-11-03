@@ -16,6 +16,14 @@ header {
 h1 {
   margin-left: 1em;
 }
+button{
+  background-color:rgb(31, 52, 177);
+  color:white;
+  font-family: "Varela Round", sans-serif;
+  border:none;
+  height:2em;
+  margin:0.5em;
+}
 
 .left {
   float: left;
@@ -24,6 +32,7 @@ h1 {
   width: 70%;
   height: 100%;
   margin: 0;
+  color:#08122a;
 }
 .right {
   float: right;
@@ -48,17 +57,24 @@ h1 {
   justify-content: center;
 }
 .tile1 {
-  width: 20em;
+  width: 30%;
   height: 7em;
-  margin: 0.5em;
-  margin-bottom: 1em;
+  margin: 1%;
+  margin-bottom: 1%;
   background-color: #96a6cc;
 }
 .tile2 {
-  width: 10em;
+  width: 22%;
   height: 5em;
-  margin: 0.5em;
+  margin: 1%;
   background-color: #e32d2d;
+}
+.tile3 {
+  width: 100%;
+  height: 70%;
+  margin:0em;
+  margin-bottom: 1em;
+
 }
 #toleft {
   margin: 0;
@@ -71,8 +87,8 @@ h1 {
 }
 #graph1 {
   position:relative;
-  height:20em;
-  width:40em;
+  height:100%;
+  width:65%;
   margin-right: 0;
 }
 #stats1 {
@@ -83,4 +99,5 @@ h1 {
 #logoimg {
   width: 10%;
   height: 10%;
+  margin-left:3.2%;
 }
