@@ -7,7 +7,7 @@ let myChart =new Chart(chart, {
         datasets:[{
             data:[141,235,412,535,698,729,834],
             fill:false,
-            borderColor:"#08122a",
+            borderColor:"#e32d2d",
             label:"line"
         }],
     },
@@ -22,7 +22,10 @@ let myChart =new Chart(chart, {
         responsive:false,
         maintainAspectRatio:true,
         defaultFontFamily: Chart.defaults.global.defaultFontFamily = "'Varela Round', sans-serif",
-        defaultFontColor:'#08122a'
+        defaultFontColor:'#08122a',
+        legend:{
+            display:false
+        }
     }
 
 })
