@@ -21,8 +21,13 @@ button{
   color:white;
   font-family: "Varela Round", sans-serif;
   border:none;
-  height:2em;
+  height:150%;
+  width:100%;
   margin:0.5em;
+  cursor:pointer;
+}
+button:hover{
+  background-color:rgb(16, 27, 88);
 }
 
 .left {
@@ -88,7 +93,7 @@ button{
 #graph1 {
   position:relative;
   height:100%;
-  width:65%;
+  width:68%;
   margin-right: 0;
 }
 #stats1 {
