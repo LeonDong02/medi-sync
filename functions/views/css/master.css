@@ -1,6 +1,9 @@
 ::-webkit-scrollbar {
   display: none;
 }
+@keyframes button{
+
+}
 body {
   font-family: "Varela Round", sans-serif;
   margin: 0 0 1em 1em;
@@ -17,13 +20,16 @@ h1 {
   margin-left: 1em;
 }
 button{
-  background-color:rgb(31, 52, 177);
-  color:white;
+  background-color:rgba(49, 74, 218, 0.747);
+  color:#96a6cc;
+  font-size:120%;
   font-family: "Varela Round", sans-serif;
   border:none;
   height:150%;
+  padding:4%;
   width:100%;
-  margin:0.5em;
+  margin-right:0.5em;
+  margin-top:1em;
   cursor:pointer;
 }
 button:hover{
