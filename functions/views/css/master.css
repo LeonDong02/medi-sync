@@ -1,0 +1,72 @@
+::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 0 1em 1em;
+    padding: 0;
+  }
+  header{
+      margin: 1em 0 0 0 ;
+  }
+  
+  header > div {
+    display: inline;
+  }
+  
+  .left {
+    float: left;
+    background-color: white;
+    padding: 0%;
+    width: 70%;
+    height: 100%;
+    margin: 0;
+  }
+  .right {
+    float: right;
+    background-color: rgb(8, 3, 34);
+    width: 27%;
+    min-height: 48em;
+    margin: 0;
+    padding: 1%;
+    color: rgb(88, 108, 194);
+  }
+  .container {
+    margin: 0;
+    width: 95%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .tile1 {
+    width: 20em;
+    height: 7em;
+    margin: 0.2em;
+    margin-bottom: 1em;
+    background-color: rgb(88, 108, 194);
+  }
+  .tile2 {
+    width: 10em;
+    height: 5em;
+    margin: 0.2em;
+    background-color: rgb(224, 60, 60);
+  }
+  #graph1 {
+    height: 15em;
+    width: 30em;
+    background-color: rgb(88, 108, 194);
+    margin: auto;
+    margin-right: 0;
+  }
+  #stats1 {
+    height: 100%;
+    width: 30%;
+    padding: 5%;
+  }
+  #logoimg {
+    width: 10%;
+    height: 10%;
+  }
+  
