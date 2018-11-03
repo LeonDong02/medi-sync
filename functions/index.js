@@ -40,7 +40,8 @@ app.get('/auth', (req, res) => {
   }
 });
 app.get('/token', (req, res) => {
-  res.render('index', {req.query.token});
+  let token = req.query.token;
+  res.render('index', {code: token});
 });
 
 exports.app = functions.https.onRequest(app);
