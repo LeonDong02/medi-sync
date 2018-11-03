@@ -2,21 +2,20 @@
   display: none;
 }
 body {
-  font-family:'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
   margin: 0 0 1em 1em;
   padding: 0;
 }
-header{
-    margin: 2em 0 0 0 ;
-    display:flex;
-    flex-direction:row;
-    align-items:center;
+header {
+  margin: 2em 0 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-h1{
-    margin-left:1em;
+h1 {
+  margin-left: 1em;
 }
-
 
 .left {
   float: left;
@@ -28,15 +27,15 @@ h1{
 }
 .right {
   float: right;
-  position:fixed;
-  right:0;
+  position: fixed;
+  right: 0;
   top: 0;
-  background-color: #08122A;
+  background-color: #08122a;
   width: 27%;
   min-height: 48em;
   margin: 0;
   padding: 1%;
-  color: #96A6CC;
+  color: #96a6cc;
 }
 .container {
   margin: 0;
@@ -46,23 +45,22 @@ h1{
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content:center;
-
+  justify-content: center;
 }
 .tile1 {
   width: 20em;
   height: 7em;
   margin: 0.5em;
   margin-bottom: 1em;
-  background-color: #96A6CC;
+  background-color: #96a6cc;
 }
 .tile2 {
   width: 10em;
   height: 5em;
   margin: 0.5em;
-  background-color: #E32D2D;
+  background-color: #e32d2d;
 }
-#toleft{
+#toleft {
   margin: 0;
   width: 95%;
   overflow: hidden;
@@ -70,13 +68,12 @@ h1{
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-
 }
 #graph1 {
   height: 15em;
   width: 30em;
-  background-color: #96A6CC;
-  margin:4em;
+  background-color: #96a6cc;
+  margin: 4em;
   margin-right: 0;
 }
 #stats1 {
