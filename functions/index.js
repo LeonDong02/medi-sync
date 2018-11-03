@@ -12,6 +12,7 @@ const app = express();
 const client = new FitbitApiClient({clientId: '22D59S', clientSecret: '593fa72b8cacede4644a48c0ff53f8dd'});
 app.use(express.static('views'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 app.engine('hbs', engines.handlebars);
 app.set('views', './views');
 app.set('view engine', 'hbs');
