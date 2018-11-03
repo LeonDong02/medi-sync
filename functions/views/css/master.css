@@ -1,9 +1,7 @@
 ::-webkit-scrollbar {
   display: none;
 }
-@keyframes button{
 
-}
 body {
   font-family: "Varela Round", sans-serif;
   margin: 0 0 1em 1em;
@@ -20,8 +18,8 @@ h1 {
   margin-left: 1em;
 }
 button{
-  background-color:rgba(49, 74, 218, 0.747);
-  color:#96a6cc;
+  background-color:rgb(49, 74, 218);
+  color:white;
   font-size:120%;
   font-family: "Varela Round", sans-serif;
   border:none;
@@ -33,7 +31,7 @@ button{
   cursor:pointer;
 }
 button:hover{
-  background-color:rgb(16, 27, 88);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .left {
@@ -55,7 +53,7 @@ button:hover{
   min-height: 48em;
   margin: 0;
   padding: 1%;
-  color: #96a6cc;
+  color: white;
 }
 .container {
   margin: 0;
