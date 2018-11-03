@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const firebase = require('firebase-admin');
 const express = require('express');
 const engines = require('consolidate');
+const bodyParser = require('body-parser');
 const FitbitApiClient = require('fitbit-node');
 
 const firebaseApp = firebase.initializeApp(functions.config().firebase);
@@ -10,6 +11,7 @@ const database = firebase.database();
 const app = express();
 const client = new FitbitApiClient({clientId: '22D59S', clientSecret: '593fa72b8cacede4644a48c0ff53f8dd'});
 app.use(express.static('views'));
+app.use(bodyParser.json());
 app.engine('hbs', engines.handlebars);
 app.set('views', './views');
 app.set('view engine', 'hbs');
@@ -23,6 +25,9 @@ app.get('/auth', (req, res) => {
 });
 app.get('/callback', (req, res) => {
   res.render('callback');
+});
+app.get('/callback/landing', (req, res) => {
+  res.send(req.body.content);
 });
 
 exports.app = functions.https.onRequest(app);
