@@ -5,7 +5,7 @@ let myChart =new Chart(chart, {
     data:{
         labels:['Mon','Tues','Wed','Thurs','Fri','Sat','Sun'],
         datasets:[{
-            data:[141,235,412,535,698,729,834],
+            data:[523,900,342,535,698,729,834],
             backgroundColor:"rgba(8, 18, 42, 0.842)",
             label:"Calories Burned"
         }],
@@ -13,7 +13,8 @@ let myChart =new Chart(chart, {
     options:{
         title:{
             display:true,
-            text:"Daily Activity"
+            text:"Daily Activity",
+            fontSize:20
         },
         layout:{
 
