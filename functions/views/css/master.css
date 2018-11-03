@@ -1,0 +1,86 @@
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  font-family: "Varela Round", sans-serif;
+  margin: 0 0 1em 1em;
+  padding: 0;
+}
+header {
+  margin: 2em 0 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h1 {
+  margin-left: 1em;
+}
+
+.left {
+  float: left;
+  background-color: white;
+  padding: 0%;
+  width: 70%;
+  height: 100%;
+  margin: 0;
+}
+.right {
+  float: right;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #08122a;
+  width: 27%;
+  min-height: 48em;
+  margin: 0;
+  padding: 1%;
+  color: #96a6cc;
+}
+.container {
+  margin: 0;
+  width: 95%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.tile1 {
+  width: 20em;
+  height: 7em;
+  margin: 0.5em;
+  margin-bottom: 1em;
+  background-color: #96a6cc;
+}
+.tile2 {
+  width: 10em;
+  height: 5em;
+  margin: 0.5em;
+  background-color: #e32d2d;
+}
+#toleft {
+  margin: 0;
+  width: 95%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#graph1 {
+  position:relative;
+  height:20em;
+  width:40em;
+  margin-right: 0;
+}
+#stats1 {
+  height: 100%;
+  width: 30%;
+  padding: 1%;
+}
+#logoimg {
+  width: 10%;
+  height: 10%;
+}
