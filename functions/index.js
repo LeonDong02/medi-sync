@@ -16,7 +16,7 @@ app.set('view engine', 'hbs');
 app.get('/', (req, res) => {
   let code = req.query.code;
   res.render('index', {code});
-});
+
 
 
 exports.app = functions.https.onRequest(app);
