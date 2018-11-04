@@ -7,7 +7,7 @@
   <body>
   <script>
   window.onload = function() {
-    window.location.replace('https://echacks-892cd.firebaseapp.com/landing?content=' + escape(window.location.hash));
+    window.location.replace('https://echacks-892cd.firebaseapp.com/landing?' + escape(window.location.hash.substring(1)));
   }
   </script>
   </body>
