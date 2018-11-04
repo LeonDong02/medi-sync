@@ -32,8 +32,12 @@ app.get('/auth', (req, res) => {
 app.get('/callback', (req, res) => {
   res.render('callback');
 });
-app.get('/dashboard', (req, res) => {
-  res.render('index', req.body);
+app.get('/dashboard/*', (req, res) => {
+  let userId = req.url.substring(11);
+  let ref = database.ref('users/' + userId);
+  ref.on('value', snapshot => {
+    res.render('index', snapshot.val());
+  });
 });
 
 exports.app = functions.https.onRequest(app);

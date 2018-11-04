@@ -39,3 +39,10 @@ function fetchData(url) {
 function saveData(data) {
   axios.get('https://echacks-892cd.firebaseapp.com/dashboard', data);
 }
+
+function saveData(data) {
+  // save data to firebase under user id
+  database.ref('users/' + vars.user_id).set(data);
+  // redirect to /dashboard/<user_id>
+  window.location.replace('/dashboard/' + vars.user_id);
+}

@@ -5,7 +5,19 @@
     <title></title>
   </head>
   <body>
-  <script src="js/fitbit.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyC-pzOEfWXGTvrcLeteww7ncMtdaZkmzro",
+        authDomain: "echacks-892cd.firebaseapp.com",
+        databaseURL: "https://echacks-892cd.firebaseio.com",
+        projectId: "echacks-892cd",
+        storageBucket: "echacks-892cd.appspot.com",
+        messagingSenderId: "347758818524"
+      };
+      firebase.initializeApp(config);
+      var database = firebase.database();
+    </script>
+    <script src="js/fitbit.js"></script>
   </body>
 </html>
