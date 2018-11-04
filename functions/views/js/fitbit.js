@@ -36,5 +36,5 @@ function fetchData(url) {
 }
 
 function saveData(data) {
-  axios.post('/dashboard', data);
+  axios.get('https://echacks-892cd.firebaseapp.com/dashboard', data);
 }

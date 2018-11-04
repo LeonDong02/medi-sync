@@ -32,7 +32,7 @@ app.get('/auth', (req, res) => {
 app.get('/callback', (req, res) => {
   res.render('callback');
 });
-app.post('/dashboard', (req, res) => {
+app.get('/dashboard', (req, res) => {
   res.render('index', req.body);
 });
 
