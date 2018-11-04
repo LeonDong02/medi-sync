@@ -31,7 +31,7 @@ let myChart = new Chart(chart, {
 });
 
 //Algorithm for overall health rating
-var totalCalories = ;
+var totalCalories = data.foods.nutritionalValues.calories;
 var sleep = data.sleep.summary.totalMinutesAsleep;
 var BMR = 1600;
 var total = 0;
