@@ -44,15 +44,7 @@ app.get('/landing', (req, res) => {
   scope = req.query.scope;
   token_type = req.query.token_type;
   expires_in = req.query.expires_in;
-  res.send("landing");
-  https.get('https://api.fitbit.com/1/user/-/profile.json', {
-    headers: {
-      'Authorization': 'Bearer ' + req.query.access_token
-    }
-  }, r => {
-    res.send(r);
-  });
-  // res.redirect('callback');
+  res.send(access_token+user_id+scope+token_type+expires_in);
 });
 
 exports.app = functions.https.onRequest(app);
