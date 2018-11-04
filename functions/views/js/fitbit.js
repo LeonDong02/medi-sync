@@ -23,6 +23,7 @@ async function getData(date, period) {
   data.heart = await fetchData('activities/heart/date/' + date + '/' + period);
   data.bodyFat = await fetchData('body/log/weight/date/' + date + '/' + period);
   data.bmi = await fetchData('body/bmi/date/' + date + '/' + period);
+  data.calories = await fetchData('foods/log' + date);
   return data;
 }
 
