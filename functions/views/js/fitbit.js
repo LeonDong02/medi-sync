@@ -16,12 +16,12 @@ window.onload = function() {
 
   let today = [year, month, day].join('-');
   // get data
-  getData(today).then(console.log(data));
+  getData(today, '7d').then(console.log(data));
 }
-async function getData(today) {
+async function getData(date, period) {
   data.profile = await fetchData('profile');
-  data.heart = await fetchData('activities/heart/date/today/1d');
-  data.bodyFat = await fetchData('body/log/fat/date/' + today + '/1d');
+  data.heart = await fetchData('activities/heart/date/' + date + '/' + period);
+  data.bodyFat = await fetchData('body/log/fat/date/' + date + '/' + period);
   // more
 }
 
