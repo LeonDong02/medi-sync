@@ -36,7 +36,7 @@ app.get('/landing', (req, res) => {
   // req.query.token_type
   // req.query.expires_in
 
-  client.get("https://api.fitbit.com/1/user/-/activities/heart/date/today/1d.json", req.query.access_token, req.query.user_id).then(results => {
+  client.get(`https://api.fitbit.com/1/user/${req.query.user_id}/activities/heart/date/today/1d.json`, req.query.access_token).then(results => {
     res.send(results[0]);
   })
 });
