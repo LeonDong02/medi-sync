@@ -31,11 +31,11 @@ let myChart = new Chart(chart, {
 });
 
 //Algorithm for overall health rating
-var totalCalories = 0;
-var sleep = 9;
+var totalCalories = ;
+var sleep = data.sleep.summary.totalMinutesAsleep;
 var BMR = 1600;
 var total = 0;
-var activeTime = 2;
+var activeTime = data.activity.summary.fairlyActiveMinutes;
 var gender = 0;
 
 if ((gender = 0)) {
