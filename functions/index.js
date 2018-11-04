@@ -19,6 +19,7 @@ app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
   res.render('index', {code:"Homepage"});
+  // render a signup page instead?
 });
 app.get('/auth', (req, res) => {
   let url = 'https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22D59S&redirect_uri=https%3A%2F%2Fechacks-892cd.firebaseapp.com%2Fcallback&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800';
@@ -28,7 +29,12 @@ app.get('/callback', (req, res) => {
   res.render('callback');
 });
 app.get('/landing', (req, res) => {
-  res.send("Content: " + req.query.access_token);
+  res.send("Access token: " + req.query.access_token);
+  // other vars:
+  // req.query.user_id
+  // req.query.scope
+  // req.query.token_type
+  // req.query.expires_in
 });
 
 exports.app = functions.https.onRequest(app);
