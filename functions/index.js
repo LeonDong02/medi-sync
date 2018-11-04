@@ -5,6 +5,8 @@ const engines = require('consolidate');
 const bodyParser = require('body-parser');
 const FitbitApiClient = require('fitbit-node');
 
+var access_token, user_id, scope, token_type, expires_in;
+
 const firebaseApp = firebase.initializeApp(functions.config().firebase);
 const database = firebase.database();
 
@@ -27,7 +29,11 @@ app.get('/auth', (req, res) => {
   res.redirect(url);
 });
 app.get('/callback', (req, res) => {
-  res.render('callback');
+  if (access_token) {
+    res.render('index', {code: 'it works'});
+  } else {
+    res.render('callback');
+  }
 });
 app.get('/landing', (req, res) => {
   // req.query.access_token
@@ -36,11 +42,12 @@ app.get('/landing', (req, res) => {
   // req.query.scope
   // req.query.token_type
   // req.query.expires_in
-  client.get('/profile.json', req.query.access_token, req.query.user_id).then(result => {
-    res.send(result[0]);
-  }).catch(err => {
-    res.send(err);
-  });
+  access_token = req.query.access_token;
+  user_id = req.query.user_id;
+  scope = req.query.scope;
+  token_type = req.query.token_type;
+  expires_in = req.query.expires_in;
+  res.render('callback');
 });
 
 exports.app = functions.https.onRequest(app);
