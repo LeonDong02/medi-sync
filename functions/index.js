@@ -35,7 +35,7 @@ app.get('/landing', (req, res) => {
   // req.query.scope
   // req.query.token_type
   // req.query.expires_in
-  client.get('activities/heart/date/today/1d.json', req.query.access_token).then(result => {
+  client.get('/profile.json', req.query.access_token).then(result => {
     res.send(result[0]);
   })
 });
