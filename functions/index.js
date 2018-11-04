@@ -9,7 +9,7 @@ const firebaseApp = firebase.initializeApp(functions.config().firebase);
 const database = firebase.database();
 
 const app = express();
-const client = new FitbitApiClient({clientId: '22D59S', clientSecret: '593fa72b8cacede4644a48c0ff53f8dd'});
+const client = new FitbitApiClient({clientId: '22D59S', clientSecret: '593fa72b8cacede4644a48c0ff53f8dd', apiVersion: '1.2'});
 app.use(express.static('views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -35,9 +35,8 @@ app.get('/landing', (req, res) => {
   // req.query.scope
   // req.query.token_type
   // req.query.expires_in
-
-  client.get("/profile.json", req.query.access_token, req.query.user_id).then(results => {
-    res.send(results[0]);
+  client.get('/profile.json', req.query.access_token).then(result => {
+    res.send(result[0]);
   })
 });
 
