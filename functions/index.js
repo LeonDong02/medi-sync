@@ -36,7 +36,9 @@ app.get('/dashboard/*', (req, res) => {
   let userId = req.url.substring(11);
   let ref = database.ref('users/' + userId);
   ref.on('value', snapshot => {
-    res.render('index', {data:snapshot.val()});
+    let data = snapshot.val();
+    data.sleep.summary.totalMinutesAsleep /= 60;
+    res.render('index', {data});
   });
 });
 
