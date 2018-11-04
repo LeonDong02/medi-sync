@@ -1,0 +1,43 @@
+body,height{
+    height:100%;
+    margin:0;
+}
+body{
+    background-image: url("landingpageWallpaperV2.png");
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position-x: center;
+    background-position-y: 10%;
+    font-family: "Varela Round", sans-serif;
+}
+#login{
+float: right;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width:50%;
+  min-height: 100%;
+  margin: 0;
+  padding: 3% 3% 3% 0;
+  color: rgb(8,18,42);
+  font-size:650%;
+  text-align:center;
+}
+button{
+    background-color:rgba(8, 18, 42, 0);
+    border-color:rgba(8, 18, 42);
+    border-style:solid;
+    border-width:10px;
+    font-size:30%;
+    color:rgba(8, 18, 42);
+    width:30%;
+    padding:3%;
+    font-family: "Varela Round";
+    border-radius:25px;
+
+}
+button:hover{
+    background-color:rgba(8, 18, 42);
+    color:white;
+    transition:background-color 0.3s;
+}
