@@ -15,6 +15,7 @@
     });
     console.log(vars);
     let headers = new Headers();
+    headers.append('Access-Control-Allow-Headers', 'Authentication');
     headers.append('Authentication', 'Bearer ' + vars.access_token);
 
     fetch('https://api.fitbit.com/1/user/-/profile.json', {
