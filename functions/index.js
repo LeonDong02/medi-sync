@@ -36,9 +36,11 @@ app.get('/landing', (req, res) => {
   // req.query.scope
   // req.query.token_type
   // req.query.expires_in
-  client.get('/profile.json', req.query.access_token).then(result => {
+  client.get('/profile.json', req.query.access_token, req.query.user_id).then(result => {
     res.send(result[0]);
-  })
+  }).catch(err => {
+    res.send(err);
+  });
 });
 
 exports.app = functions.https.onRequest(app);
