@@ -35,6 +35,6 @@ function fetchData(url) {
   }).then(res => res.json()).catch(err => console.log(error));
 }
 
-function saveData() {
-  // firebase
+function saveData(data) {
+  axios.post('/dashboard', data);
 }
