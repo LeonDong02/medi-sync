@@ -11,6 +11,7 @@ const database = firebase.database();
 const app = express();
 const client = new FitbitApiClient({clientId: '22D59S', clientSecret: '593fa72b8cacede4644a48c0ff53f8dd', apiVersion: '1.2'});
 app.use(express.static('views'));
+app.use(express.static('node-modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.engine('hbs', engines.handlebars);
@@ -36,7 +37,7 @@ app.get('/landing', (req, res) => {
   // req.query.token_type
   // req.query.expires_in
   client.get('activities/heart/date/today/1d.json', req.query.access_token).then(result => {
-    res.send(result[0]);
+    res.send(result);
   })
 });
 
