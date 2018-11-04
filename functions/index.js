@@ -36,7 +36,7 @@ app.get('/dashboard/*', (req, res) => {
   let userId = req.url.substring(11);
   let ref = database.ref('users/' + userId);
   ref.on('value', snapshot => {
-    res.send(snapshot.val());
+    res.render('index', {data:snapshot.val()});
   });
 });
 
