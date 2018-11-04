@@ -29,12 +29,16 @@ app.get('/callback', (req, res) => {
   res.render('callback');
 });
 app.get('/landing', (req, res) => {
-  res.send("Access token: " + req.query.access_token);
+  // req.query.access_token
   // other vars:
   // req.query.user_id
   // req.query.scope
   // req.query.token_type
   // req.query.expires_in
+
+  client.get("/profile.json", req.query.access_token).then(results => {
+    res.send(results[0]);
+  })
 });
 
 exports.app = functions.https.onRequest(app);
