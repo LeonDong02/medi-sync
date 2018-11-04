@@ -15,13 +15,7 @@ window.onload = function() {
 
   let today = [year, month, day].join('-');
   // get data
-  getData(today, '7d').then(data => console.log(data));/*.then(data => fetch('https://echacks-892cd.firebaseapp.com/dashboard', {
-    method: 'POST',
-    headers: {
-        "Content-Type": "application/json; charset=utf-8",
-    },
-    body: JSON.stringify(data)
-  }));*/
+  getData(today, '7d').then(data => saveData(data));
 }
 async function getData(date, period) {
   let data = {};
@@ -39,4 +33,8 @@ function fetchData(url) {
       'Authorization': 'Bearer ' + vars.access_token
     }
   }).then(res => res.json()).catch(err => console.log(error));
+}
+
+function saveData() {
+  // firebase
 }

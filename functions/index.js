@@ -32,8 +32,8 @@ app.get('/auth', (req, res) => {
 app.get('/callback', (req, res) => {
   res.render('callback');
 });
-app.get('/dashboard', (req, res) => {
-  res.send(req.body);
+app.all('/dashboard', (req, res) => {
+  res.render('index', req.body);
 });
 
 exports.app = functions.https.onRequest(app);
