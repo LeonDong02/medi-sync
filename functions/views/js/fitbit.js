@@ -23,10 +23,9 @@ async function getData(date, period) {
   data.heart = await fetchData('activities/heart/date/' + date + '/' + period);
   data.bodyFat = await fetchData('body/log/weight/date/' + date + '/' + period);
   data.bmi = await fetchData('body/bmi/date/' + date + '/' + period);
-  data.calories = await fetchData('foods/log/' + date);
+  data.calories = await fetchData('foods/log' + date);
   data.sleep = await fetchData('sleep/date/' + date);
   data.activity = await fetchData('activities/date/' + date);
-
   return data;
 }
 
@@ -41,4 +40,11 @@ function fetchData(url) {
 
 function saveData(data) {
   axios.get('https://echacks-892cd.firebaseapp.com/dashboard', data);
+}
+
+function saveData(data) {
+  // save data to firebase under user id
+  database.ref('users/' + vars.user_id).set(data);
+  // redirect to /dashboard/<user_id>
+  window.location.replace('/dashboard/' + vars.user_id);
 }
