@@ -15,20 +15,20 @@ window.onload = function() {
 
   let today = [year, month, day].join('-');
   // get data
-  getData(today, '7d').then(data => fetch('/dashboard', {
+  getData(today, '7d').then(data => console.log(data));/*.then(data => fetch('https://echacks-892cd.firebaseapp.com/dashboard', {
     method: 'POST',
     headers: {
         "Content-Type": "application/json; charset=utf-8",
     },
     body: JSON.stringify(data)
-  }));
+  }));*/
 }
 async function getData(date, period) {
   let data = {};
   data.profile = await fetchData('profile');
   data.heart = await fetchData('activities/heart/date/' + date + '/' + period);
   data.bodyFat = await fetchData('body/log/weight/date/' + date + '/' + period);
-  data.bmi = await fetchData('body/log/bmi/date/' + date + '/' + period);
+  data.bmi = await fetchData('body/bmi/date/' + date + '/' + period);
   return data;
 }
 
