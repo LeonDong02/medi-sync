@@ -7,7 +7,20 @@
   <body>
   <script>
   window.onload = function() {
-    window.location.replace('https://echacks-892cd.firebaseapp.com/landing?' + decodeURI(window.location.hash.substring(1)));
+    //window.location.replace('https://echacks-892cd.firebaseapp.com/landing?' + decodeURI(window.location.hash.substring(1)));
+    let hash = decodeURI(window.location.hash);
+    let vars = {};
+    hash.replace(/[#&]+([^=&]+)=?([^&]*)?/gi, (m, key, value) => {
+      vars[key] = value;
+    });
+    console.log(vars);
+    let headers = new Headers();
+    headers.append('Authentication', 'Bearer ' + vars.access_token);
+
+    fetch('https://api.fitbit.com/1/user/-/profile.json', {
+      'method': 'GET',
+      'headers': headers
+    }).then(res => res.json()).then(data => console.log(data)).catch(err => console.log(error));
   }
   </script>
   </body>
