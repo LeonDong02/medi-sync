@@ -38,7 +38,7 @@ app.get('/dashboard/*', (req, res) => {
   ref.on('value', snapshot => {
     let data = snapshot.val();
     data.sleep.summary.totalMinutesAsleep = Math.floor(data.sleep.summary.totalMinutesAsleep/60);
-    res.render('index', {data});
+    res.render('index', {'data': data, 'jsonstring': JSON.stringify(data)});
   });
 });
 

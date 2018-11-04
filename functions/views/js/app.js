@@ -31,35 +31,38 @@ let myChart = new Chart(chart, {
 });
 
 //Algorithm for overall health rating
-console.log(data);
-var totalCalories = data.foods[0].nutritionalValues.calories;
+function calculateRating(data) {
 
-var sleep = data.sleep.summary.totalMinutesAsleep;
-var BMR = 1600;
-var total = 0;
-var activeTime = data.activity.summary.fairlyActiveMinutes;
-var gender = 0;
+  var totalCalories = data.calories ? data.calories.nutritionalValues.calories : 2000;
 
-if ((gender = 0)) {
-  totalCalories = 2200 - (BMR + activeTime * 100);
-} else {
-  totalCalories = 2000 - (BMR + activeTime * 160);
+  var sleep = data.sleep.summary.totalMinutesAsleep;
+  var BMR = 1600;
+  var total = 0;
+  var activeTime = data.activity.summary.fairlyActiveMinutes;
+  var gender = 0;
+
+  if ((gender = 0)) {
+    totalCalories = 2200 - (BMR + activeTime * 100);
+  } else {
+    totalCalories = 2000 - (BMR + activeTime * 160);
+  }
+
+  if (totalCalories <= 200) {
+    total += 2;
+  } else if (totalCalories >= 200 && totalCalories <= 400) {
+    total += 1;
+  }
+
+  if (sleep >= 8 && sleep <= 10) {
+    total += 4;
+  } else if (sleep >= 7 && sleep <= 11) {
+    total += 2;
+  }
+
+  if (activeTime >= 1) {
+    total += (activeTime / 2) * 4;
+  }
+  document.getElementById("righthead").innerHTML =
+    "Overall health rating: " + total + "/10";
+
 }
-
-if (totalCalories <= 200) {
-  total += 2;
-} else if (totalCalories >= 200 && totalCalories <= 400) {
-  total += 1;
-}
-
-if (sleep >= 8 && sleep <= 10) {
-  total += 4;
-} else if (sleep >= 7 && sleep <= 11) {
-  total += 2;
-}
-
-if (activeTime >= 1) {
-  total += (activeTime / 2) * 4;
-}
-document.getElementById("righthead").innerHTML =
-  "Overall health rating: " + total + "/10";

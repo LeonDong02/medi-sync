@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <title>Page Title</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/master.css  " />
-    <script src="main.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 </head>
 
@@ -13,7 +12,7 @@
     <div class="left">
         <header>
 
-            <img src="img/FinalLogo.png" id="logoimg">
+            <img src="../../img/FinalLogo.png" id="logoimg">
 
             <h1>Medi-<span style="color:rgb(227,45,45)">Sync</span></h1>
         </header>
@@ -85,8 +84,10 @@
         </div>
 
     </div>
+    <div id="data" style="display:none">{{jsonstring}}</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="../../js/app.js"></script>
+    <script type="text/javascript">calculateRating(JSON.parse(document.getElementById('data').innerHTML))</script>
 </body>
 
 </html>
